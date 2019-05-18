@@ -5,6 +5,10 @@
  */
 package sapper;
 
+import java.util.Arrays;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.stage.Stage;
 
 /**
@@ -17,10 +21,11 @@ public class Controller {
     private Field field;
     private int fieldSize;
     private int bombs;
+    private boolean[][] trip;
     
     
     public Controller(Stage primaryStage){
-       view = new View(primaryStage, this, 0, 7, 7);
+       view = new View(primaryStage, this, new int[]{7, 21});
     }
 
     
@@ -32,7 +37,6 @@ public class Controller {
     }
     
    public void setCell (int[] cords){
-  
             view.updateField(cords, field.getCell(cords[0], cords[1]));      
    }
     
@@ -64,6 +68,36 @@ public class Controller {
                 }
             
         }
+    }
+    
+    public void showBombs(int[] cords){
+        this.trip = new boolean[fieldSize][fieldSize];
+        for (int i = 0; i < fieldSize; i++){
+            Arrays.fill(trip[i], false);
+        }
+        findBombs(cords[0], cords[1]);
+    }
+    
+    private void findBombs(int x, int y){
+          if (x < 0 || y < 0 || y >= fieldSize || x >= fieldSize)
+            return ;
+          
+        if (trip[x][y])
+            return;
+        else trip[x][y] = true;
+        
+                           
+        if (field.getCell(x, y) == 9){
+             
+            view.updateField(new int[]{x, y}, 10);
+        }
+    
+        findBombs(x+1, y);
+        findBombs(x, y+1);
+        findBombs(x-1, y);
+        findBombs(x, y-1);
+                
+        return ;
     }
     
     public void flagControll(boolean flag){
