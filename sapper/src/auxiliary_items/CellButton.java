@@ -31,7 +31,7 @@ public class CellButton extends Button{
         this.x = x;
         this.y = y;
         this.controller = controller;
-        this.setPrefSize(33, 33);
+        this.setPrefSize(34, 34);
         flagPic.setFitHeight(20);
         flagPic.setFitWidth(15);
         flag = true;

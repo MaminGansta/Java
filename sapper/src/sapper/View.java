@@ -135,8 +135,14 @@ public class View {
         if (!buttons[cords[0]][cords[1]].getText().equals("")) 
             return;
         
-        if (val < 9)
+        if (val < 9){
             buttons[cords[0]][cords[1]].setText(val + "");
+            
+            if (buttons[cords[0]][cords[1]].getGraphic() != null){
+                buttons[cords[0]][cords[1]].setGraphic(null);
+                flagsControll(false);
+            }
+        }
         
          if (val == 1){
              buttons[cords[0]][cords[1]].setStyle("-fx-text-fill: blue; -fx-font: 15 arial");
@@ -209,7 +215,7 @@ public class View {
         root.getChildren().addAll(menuBar, displadeBombs);
         
         if (lvl == 0)
-            scene = new Scene(root, 225, 283);
+            scene = new Scene(root, 222, 283);
         else 
             scene = new Scene(root, 695, 740);  
                    
