@@ -57,7 +57,7 @@ public class Controller {
                         setCell(new int[] {i, j});
                  
                     
-                    if (!emptyCords[i][j] && 
+                    if (!emptyCords[i][j] && field.getCell(i, j) != 0 &&
                             (((i+1<fieldSize && emptyCords[i+1][j]) || (j+1<fieldSize && emptyCords[i][j+1]))
                             || ((i-1>=0 && emptyCords[i-1][j]) || (j-1>=0 && emptyCords[i][j-1]))
                             || (i+1<fieldSize && j+1<fieldSize && i-1>=0 && j-1>=0 && (emptyCords[i-1][j-1] || emptyCords[i+1][j+1] || emptyCords[i-1][j+1] || emptyCords[i+1][j-1])))){

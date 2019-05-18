@@ -32,8 +32,8 @@ public class CellButton extends Button{
         this.y = y;
         this.controller = controller;
         this.setPrefSize(34, 34);
-        flagPic.setFitHeight(20);
-        flagPic.setFitWidth(15);
+        flagPic.setFitHeight(18);
+        flagPic.setFitWidth(14);
         flag = true;
         
         this.setOnMouseClicked(a -> {
@@ -54,21 +54,12 @@ public class CellButton extends Button{
                  }
              }
         } );
-
-                
-        
-//       EventHandler<MouseEvent> mouseEventHendler = new EventHandler<MouseEvent>() {
-//
-//            @Override
-//            public void handle(MouseEvent e) {
-//                System.out.println("sdads");
-//            }
-//        };
-//               
-//       this.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEventHendler);
         
     }
     
+ public void flagDefolt(){
+            this.flag = true;
+        }
 
     
 }

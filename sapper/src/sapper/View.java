@@ -117,6 +117,7 @@ public class View {
                 field.add(buttons[i][j], j, i);
                 buttons[i][j].setText("");
                 buttons[i][j].setGraphic(null);
+                buttons[i][j].flagDefolt();
             }
          
         root.getChildren().add(field);
@@ -215,7 +216,7 @@ public class View {
         root.getChildren().addAll(menuBar, displadeBombs);
         
         if (lvl == 0)
-            scene = new Scene(root, 222, 283);
+            scene = new Scene(root, 235, 283);
         else 
             scene = new Scene(root, 695, 740);  
                    
@@ -228,13 +229,13 @@ public class View {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-    
-    private void upgreadeLvl(){ //doesn't work
-        VBox a = new VBox(root);
-        primaryStage.setScene(new Scene(a, 232, 280));
-        primaryStage.show();
-    }
-    
+
+//    private void upgreadeLvl(){ //doesn't work
+//        VBox a = new VBox(root);
+//        primaryStage.setScene(new Scene(a, 232, 280));
+//        primaryStage.show();
+//    }
+
     public View(Stage primaryStage, Controller controller, int[] sizeForFields){
         this.primaryStage = primaryStage;
         this.controller = controller;
